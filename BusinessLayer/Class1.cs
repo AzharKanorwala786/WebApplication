@@ -31,6 +31,11 @@ namespace BusinessLayer
             return UnitOfWork.Repository<TEntity>().Query();
         }
 
+        public TEntity GetFirstOrDefault()
+        {
+            return UnitOfWork.Repository<TEntity>().GetFirstOrDefault();
+        }
+
         public void Insert(TEntity entity)
         {
             UnitOfWork.Repository<TEntity>().Insert(entity);

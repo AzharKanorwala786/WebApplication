@@ -9,6 +9,7 @@
     using RepositoryLayer.Repositories;
     using BusinessLayer.Services;
     using BusinessLayer.Interface;
+    using DataLayer.Contexts;
 
     public class AutoFacConfig
     {
@@ -36,9 +37,11 @@
             builder.RegisterGeneric(typeof(GenericService<>)).As(typeof(IGenericService<>));
 
             // register services
-            //builder.RegisterType<ProductService>().As<IProductService>().InstancePerLifetimeScope();
+            builder.RegisterType<ProductService>().As<IProductService>().InstancePerLifetimeScope();
 
-            //builder.RegisterType<CategoryService>().As<ICategoryService>().InstancePerLifetimeScope();
+            builder.RegisterType<CategoryService>().As<ICategoryService>().InstancePerLifetimeScope();
+
+            builder.RegisterType<Context>().InstancePerLifetimeScope();
 
             //Set the dependency resolver to be Autofac.  
             Container = builder.Build();

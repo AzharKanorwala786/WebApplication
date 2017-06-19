@@ -10,6 +10,7 @@
         public Context()
             : base("Name=defaultCS")
         {
+            var ensureDLLIsCopied = System.Data.Entity.SqlServer.SqlProviderServices.Instance;
         }
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> Categories { get; set; }

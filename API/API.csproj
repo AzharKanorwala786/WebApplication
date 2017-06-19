@@ -119,6 +119,10 @@
       <Project>{41e21532-16e3-45ce-985c-ef482c90eef1}</Project>
       <Name>BusinessLayer</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DataLayer\DataLayer.csproj">
+      <Project>{6b4ac38b-83dc-4d56-a56b-7adb8b8cfb83}</Project>
+      <Name>DataLayer</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DTO\DTO.csproj">
       <Project>{016f4113-3eaf-4b5e-9b9b-4c61cfd0b922}</Project>
       <Name>DTO</Name>
@@ -127,6 +131,9 @@
       <Project>{2f277052-7de2-48a3-8b1b-8b6725fad98c}</Project>
       <Name>RepositoryLayer</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

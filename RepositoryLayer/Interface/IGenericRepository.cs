@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 
 namespace RepositoryLayer.Interface
 {
-   public interface IGenericRepository<TEntity> 
+   public interface IGenericRepository<TEntity> where TEntity : class
     {
         /// <summary>
         /// Get all entities from db

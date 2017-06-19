@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BusinessLayer.Interface;
-using RepositoryLayer.Interface;
-namespace BusinessLayer
+﻿namespace BusinessLayer.Services
 {
-    public class GenericService<TEntity> : IGenericService<TEntity> where TEntity : class, IDisposable
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using BusinessLayer.Interface;
+    using RepositoryLayer.Interface;
+
+    public class GenericService<TEntity> : IGenericService<TEntity> where TEntity : class
     {
         private IUnitOfWork UnitOfWork;
 
@@ -46,7 +45,7 @@ namespace BusinessLayer
             UnitOfWork.Repository<TEntity>().Update(entityObj);
         }
    
-        public void Delete<T>(T Id)
+        public void Delete(int Id)
         {
             UnitOfWork.Repository<TEntity>().Delete(Id);
         }

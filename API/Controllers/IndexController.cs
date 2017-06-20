@@ -26,5 +26,12 @@ namespace API.Controllers
         {
             return productService.GetAllProducts();
         }
+
+        [HttpGet]
+        public Product GetSingleProduct()
+        {
+            return productService.GetFirstOrDefault();
+        }
+
     }
 }

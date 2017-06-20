@@ -28,10 +28,10 @@ namespace API.Controllers
         }
 
         [HttpGet]
-        public Product GetSingleProduct()
+        public IHttpActionResult Get(int Id)
         {
-            return productService.GetFirstOrDefault();
+            var product = productService.GetByProductId(Id);
+            return Ok(product);
         }
-
     }
 }

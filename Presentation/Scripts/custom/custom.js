@@ -1,6 +1,7 @@
 ﻿$(document).ready(function(){
 
-    function GetAllData() {
+    $("#get").click(function (e) {
+        debugger;
         urlpath = 'http://localhost:51616/api/Index/';
         $.ajax({
             url: urlpath,
@@ -9,9 +10,9 @@
             success: function (data) {
                 WriteResponse(data);
             },
-            error: function () {
-
-            },  
-        })
-    }
+            error: function (res) {
+                alert(res);
+            },
+        });
+    });
 });

@@ -26,5 +26,12 @@ namespace API.Controllers
         {
             return productService.GetAllProducts();
         }
+
+        [HttpGet]
+        public IHttpActionResult Get(int Id)
+        {
+            var product = productService.GetByProductId(Id);
+            return Ok(product);
+        }
     }
 }

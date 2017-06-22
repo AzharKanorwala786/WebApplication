@@ -7,7 +7,7 @@
     {
         public ProductConfiguration()
         {
-            ToTable("products");
+            ToTable("testproduct");
             HasKey(x => x.Id);
 
             Property(x => x.Id).HasColumnName(@"Id").HasColumnType("int").IsRequired().HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);

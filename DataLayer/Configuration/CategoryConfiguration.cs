@@ -6,7 +6,7 @@
     {
         public CategoryConfiguration()
         {
-            ToTable("category");
+            ToTable("testcategory");
             HasKey(x => x.Id);
 
             Property(x => x.Id).HasColumnName(@"Id").HasColumnType("int").IsRequired().HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);

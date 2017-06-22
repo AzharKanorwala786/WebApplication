@@ -33,5 +33,22 @@ namespace API.Controllers
             var product = productService.GetByProductId(Id);
             return Ok(product);
         }
+
+        [HttpPost]
+        public IHttpActionResult Insert(Product product)
+        {
+            productService.InsertProduct(product);
+            productService.SaveChanges();
+            return StatusCode(HttpStatusCode.NoContent);
+        }
+
+
+        [HttpPut]
+        public IHttpActionResult Update(Product prodobj)
+        {
+            productService.UpdateProduct(prodobj);
+            productService.SaveChanges();
+            return StatusCode(HttpStatusCode.NoContent);
+        }
     }
 }

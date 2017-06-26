@@ -1,65 +1,12 @@
-﻿$(document).ready(function () {
-
-    var urlpath = 'http://localhost:51616/api/Index/';
-
-    GetData();
-
-    function GetData()
-    {
-        $.ajax({
-            url: urlpath,
-            type: 'GET',
-            dataType:'json',
-            success: function (data) {
-                console.log(data);
-                PassData(data);
-            },
-            error: function (res) {
-                debugger;
-                console.log(res)
-            },
-        });
-    }
-
-    function PassData(data)
-    {
-        debugger;
-        $.ajax({
-            url: '/Home/Index',
-            type: 'GET',
-            dataType: 'json',
-            success: function (data) {
-                debugger;
-                console.log(data);
-            },
-            error: function (res) {
-                debugger;
-                alert("error");
-            },
-        });
-    }
-
-    function GetCategory()
-    {
-        var url = 'http://localhost:51616/api/index/GetCategory';
-        $.ajax({
-            url: url,
-            type: 'GET',
-            dataType: 'json',
-            success: function (data) {
-                console.log(data);
-                PassData(data);
-            },
-            error: function (res) {
-                debugger;
-                console.log(res)
-            },
-        });
-    }
-});
-function Post(data)
-{
-}
+﻿/*!
+ * jQuery toDictionary() plugin
+ *
+ * Version 1.2 (11 Apr 2011)
+ *
+ * Copyright (c) 2011 Robert Koritnik
+ * Licensed under the terms of the MIT license
+ * http://www.opensource.org/licenses/mit-license.php
+ */
 (function ($) {
     // #region String.prototype.format
     // add String prototype format function if it doesn't yet exist

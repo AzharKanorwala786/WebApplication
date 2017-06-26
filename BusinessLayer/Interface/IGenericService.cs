@@ -10,7 +10,6 @@ namespace BusinessLayer.Interface
     {
         IEnumerable<TEntity> GetAll();
         TEntity GetById(object id);
-        IQueryable<TEntity> Query();
         TEntity GetFirstOrDefault(); 
         void Insert(TEntity entity);
         void Update(TEntity entityObj);

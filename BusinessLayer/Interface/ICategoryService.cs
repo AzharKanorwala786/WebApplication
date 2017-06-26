@@ -10,7 +10,6 @@ namespace BusinessLayer.Interface
   public interface ICategoryService : IGenericService<Category>
     {
         IEnumerable<Category> GetAllCategory();
-        IQueryable<Category> querybyCategory();
         Category GetByCategoryId(object Id);
         void SaveChanges();
     }

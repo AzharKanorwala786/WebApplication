@@ -22,66 +22,27 @@
         /// <summary>
         /// Get all entities from db
         /// </summary>
-        /// <param name="filter"></param>
-        /// <param name="orderBy"></param>
-        /// <param name="includes"></param>
         /// <returns></returns>
 
-        public List<TEntity> Get(Expression<Func<TEntity, bool>> filter = null, Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderby = null, params Expression<Func<TEntity, object>>[] includes)
+        public List<TEntity> Get()
         {
             IQueryable<TEntity> query = dbset;
-
-            foreach(Expression<Func<TEntity,object>> include in includes)
-            {
-                query = query.Include(include);
-            }
-
-            if (filter != null)
-                query = query.Where(filter);
-
-            if (orderby != null)
-                query = orderby(query);
 
             return query.ToList();
 
         }
 
-        /// <summary>
-        /// Get query for entity
-        /// </summary>
-        /// <param name="filter"></param>
-        /// <param name="orderBy"></param>
-        /// <returns></returns>
-
-        public IQueryable<TEntity> Query(Expression<Func<TEntity, bool>> filter = null, Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderby = null)
-        {
-            IQueryable<TEntity> query = dbset;
-
-            if (filter != null)
-                query = query.Where(filter);
-
-            if (orderby != null)
-                query = orderby(query);
-
-            return query;
-        }
-
-        /// <summary>
+         /// <summary>
         /// Get first or default entity by filter
         /// </summary>
-        /// <param name="filter"></param>
-        /// <param name="includes"></param>
+
         /// <returns></returns>
 
-        public TEntity GetFirstOrDefault(Expression<Func<TEntity, bool>> filter = null, params Expression<Func<TEntity, object>>[] includes)
+        public TEntity GetFirstOrDefault(Expression<Func<TEntity, bool>> filter = null)
         {
             IQueryable<TEntity> query = dbset;
 
-            foreach (Expression<Func<TEntity, object>> include in includes)
-                query = query.Include(include);
-
             return query.FirstOrDefault(filter);
-
         }
 
         /// <summary>

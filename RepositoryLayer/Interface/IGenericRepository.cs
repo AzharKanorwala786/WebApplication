@@ -10,32 +10,13 @@ namespace RepositoryLayer.Interface
         /// <summary>
         /// Get all entities from db
         /// </summary>
-        /// <param name="filter"></param>
-        /// <param name="orderBy"></param>
-        /// <param name="includes"></param>
         /// <returns></returns>
-        List<TEntity> Get(Expression<Func<TEntity, bool>> filter = null,
-            Func<IQueryable<TEntity>,IOrderedQueryable<TEntity>> orderby = null,
-            params Expression<Func<TEntity,object>>[] includes);
-
-        /// <summary>
-        /// Get query for entity
-        /// </summary>
-        /// <param name="filter"></param>
-        /// <param name="orderBy"></param>
-        /// <returns></returns>
-        IQueryable<TEntity> Query(Expression<Func<TEntity, bool>> filter = null,
-             Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null);
-
+        List<TEntity> Get();
 
         /// <summary>
         /// Get first or default entity by filter
-        /// </summary>
-        /// <param name="filter"></param>
-        /// <param name="includes"></param>
         /// <returns></returns>
-        TEntity GetFirstOrDefault(Expression<Func<TEntity, bool>> filter = null,
-             params Expression<Func<TEntity, object>>[] includes);
+        TEntity GetFirstOrDefault(Expression<Func<TEntity, bool>> filter = null);
 
 
         /// <summary>

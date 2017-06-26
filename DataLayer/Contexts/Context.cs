@@ -17,6 +17,7 @@
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            Configuration.LazyLoadingEnabled = false;
             modelBuilder.Configurations.Add(new ProductConfiguration());
             modelBuilder.Configurations.Add(new CategoryConfiguration());
         }

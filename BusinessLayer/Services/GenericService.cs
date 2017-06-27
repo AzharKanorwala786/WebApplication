@@ -25,11 +25,6 @@
             return UnitOfWork.Repository<TEntity>().GetById(Id);
         }
 
-        public IQueryable<TEntity> Query()
-        {
-            return UnitOfWork.Repository<TEntity>().Query();
-        }
-
         public TEntity GetFirstOrDefault()
         {
             return UnitOfWork.Repository<TEntity>().GetFirstOrDefault();

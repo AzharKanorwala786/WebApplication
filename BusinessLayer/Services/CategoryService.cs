@@ -17,22 +17,17 @@ namespace BusinessLayer.Services
 
         public IEnumerable<Category> GetAllCategory()
         {
-            return base.GetAll();
+            return GetAll();
         }
 
         public Category GetByCategoryId(object Id)
         {
-            return base.GetById(Id);
-        }
-
-        public IQueryable<Category> querybyCategory()
-        {
-            return base.Query();
+            return GetById(Id);
         }
 
         public void SaveChanges()
         {
-            base.Save();
+            Save();
         }
     }
 }

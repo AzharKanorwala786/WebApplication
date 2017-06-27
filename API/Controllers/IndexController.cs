@@ -1,5 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Web.Http;
 using BusinessLayer.Interface;
 using DTO;
@@ -19,9 +22,16 @@ namespace API.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<Product> GetAll()
+        public IEnumerable<Product> GetProducts()
         {
             return productService.GetAllProducts();
+        }
+
+        [HttpGet]
+        public HttpResponseMessage GetCategory()
+        {
+            var category = categoryService.GetAllCategory().AsEnumerable();
+            return ControllerContext.Request.CreateResponse(HttpStatusCode.OK, new { category });
         }
 
         [HttpGet]
@@ -32,28 +42,25 @@ namespace API.Controllers
         }
 
         [HttpPost]
-        public IHttpActionResult Insert(Product product)
+        public IHttpActionResult Insert(Product entity)
         {
-            productService.InsertProduct(product);
+            productService.InsertProduct(entity);
             productService.SaveChanges();
-            return StatusCode(HttpStatusCode.NoContent);
+            return Ok(entity);
         }
-
-
         [HttpPut]
-        public IHttpActionResult Update(Product prodobj)
+        public IHttpActionResult Update(Product entity)
         {
-            productService.UpdateProduct(prodobj);
+            productService.UpdateProduct(entity);
             productService.SaveChanges();
-            return StatusCode(HttpStatusCode.NoContent);
+            return Ok(entity);
         }
-
         [HttpDelete]
         public IHttpActionResult Delete(int Id)
         {
             productService.DeleteProduct(Id);
             productService.SaveChanges();
-            return StatusCode(HttpStatusCode.NoContent);
+            return StatusCode(HttpStatusCode.OK);
         }
     }
 }

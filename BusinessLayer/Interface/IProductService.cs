@@ -9,7 +9,6 @@
         IEnumerable<Product> GetAllProducts();
         Product GetProduct();
         Product GetByProductId(object id);
-        IQueryable<Product> querybyProduct();
         void InsertProduct(Product product);
         void UpdateProduct(Product prodobj);
         void DeleteProduct(int Id);

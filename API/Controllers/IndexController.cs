@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 using BusinessLayer.Interface;
 using DTO;
@@ -47,6 +44,14 @@ namespace API.Controllers
         public IHttpActionResult Update(Product prodobj)
         {
             productService.UpdateProduct(prodobj);
+            productService.SaveChanges();
+            return StatusCode(HttpStatusCode.NoContent);
+        }
+
+        [HttpDelete]
+        public IHttpActionResult Delete(int Id)
+        {
+            productService.DeleteProduct(Id);
             productService.SaveChanges();
             return StatusCode(HttpStatusCode.NoContent);
         }

@@ -19,24 +19,27 @@
                 console.log(data)
             },
             error: function (res) {
-                alert(res);
+                console.log(res);
             },
         });
     }
 
-    //$("#get").click(function (e) {
-    //    debugger;
-    //    urlpath = 'http://localhost:51616/api/Index/';
-    //    $.ajax({
-    //        url: urlpath,
-    //        type: 'GET',
-    //        dataType: 'json',
-    //        success: function (data) {
-    //            console.log(data)
-    //        },
-    //        error: function (res) {
-    //            alert(res);
-    //        },
-    //    });
-    //});
+    function GetDatabyName(Name)
+    {
+        $.ajax({
+            url: urlpath + Name,
+            type: 'GET',
+            datatype: 'json',
+            success: function (data) {
+                console.log(data)
+            },
+            error: function (res) {
+                console.log(res);
+            },
+        });
+    }
+
+    function Create() {
+
+    }
 });

@@ -13,23 +13,23 @@ namespace BusinessLayer.Services
             this.UnitofWork = UnitofWork;
         }
         public IEnumerable<Product> GetAllProducts()
-        {
-            return base.GetAll();
+        { 
+            return GetAll();
         }
 
         public Product GetProduct()
         {
-            return base.GetFirstOrDefault();
+            return GetFirstOrDefault();
         }
 
         public Product GetByProductId(object id)
         {
-            return base.GetById(id);
+            return GetById(id);
         }
 
         public IQueryable<Product> querybyProduct()
         {
-            return base.Query();
+            return Query();
         }
 
         public void InsertProduct(Product product)
@@ -39,17 +39,17 @@ namespace BusinessLayer.Services
 
         public void UpdateProduct(Product prodobj)
         {
-            base.Update(prodobj);
+            Update(prodobj);
         }
 
         public void DeleteProduct(int Id)
         {
-            base.Delete(Id);
+            Delete(Id);
         }
 
         public void SaveChanges()
         {
-            base.Save();
+            Save();
         }
     }
 }

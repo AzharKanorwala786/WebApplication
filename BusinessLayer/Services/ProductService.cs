@@ -26,12 +26,6 @@ namespace BusinessLayer.Services
         {
             return GetById(id);
         }
-
-        public IQueryable<Product> querybyProduct()
-        {
-            return Query();
-        }
-
         public void InsertProduct(Product product)
         {
             Insert(product);

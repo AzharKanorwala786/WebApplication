@@ -12,16 +12,26 @@ namespace Presentation.Controllers
 {
     public class HomeController : Controller
     {
-
-        //public async Task<ActionResult> Index()
-        //{   
-        //}
+        public ActionResult Index()
+        {
+            return View();
+        }
 
         public ActionResult Add()
         {
             return PartialView();
         }
 
+
+        public ActionResult ProductList()
+        {
+            ProductVM productvm = new ProductVM();
+
+            var products = 
+            
+
+            return PartialView("", productvm);
+        }
 
     }
 }

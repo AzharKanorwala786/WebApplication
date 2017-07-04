@@ -1,8 +1,9 @@
 ﻿$(document).ready(function () {
 
-    var urlpath = 'http://localhost:51616/api/Index/';
+    var urlpath = 'http://localhost:51616/api/Index/GetProducts';
 
     GetData();
+    //GetCategory();
 
     function GetData()
     {
@@ -21,6 +22,7 @@
         });
     }
 
+
     function PassData(data)
     {
         debugger;
@@ -28,6 +30,9 @@
             url: '/Home/Index',
             type: 'GET',
             dataType: 'json',
+            contentType: 'application/json; charset=utf-8',
+            cache: false,
+            data: JSON.stringify (data),
             success: function (data) {
                 debugger;
                 console.log(data);
@@ -48,7 +53,6 @@
             dataType: 'json',
             success: function (data) {
                 console.log(data);
-                PassData(data);
             },
             error: function (res) {
                 debugger;
@@ -60,6 +64,8 @@
 function Post(data)
 {
 }
+
+
 (function ($) {
     // #region String.prototype.format
     // add String prototype format function if it doesn't yet exist

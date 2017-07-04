@@ -13,7 +13,7 @@ namespace BusinessLayer.Services
             this.UnitofWork = UnitofWork;
         }
         public IEnumerable<Product> GetAllProducts()
-        {
+        { 
             return GetAll();
         }
 
@@ -26,7 +26,6 @@ namespace BusinessLayer.Services
         {
             return GetById(id);
         }
-
         public void InsertProduct(Product product)
         {
             Insert(product);

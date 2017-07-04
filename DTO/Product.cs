@@ -7,7 +7,7 @@
         public string Description { get; set; } // Description (length: 100)
         public decimal Price { get; set; } // Price
         public string Image { get; set; } // Image
-        public int? CategoryId { get; set; } // CategoryId
+        public int CategoryId { get; set; } // CategoryId
 
         // Foreign keys
 

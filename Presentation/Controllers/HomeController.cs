@@ -12,7 +12,6 @@ namespace Presentation.Controllers
 {
     public class HomeController : Controller
     {
-
         public ActionResult Index()
         {
             return View();
@@ -23,11 +22,16 @@ namespace Presentation.Controllers
             return PartialView();
         }
 
-        public ActionResult Pass()
+
+        public ActionResult ProductList()
         {
-            var Productvm = new ProductVM();
-         
-            return PartialView("ProductList",Productvm);
+            ProductVM productvm = new ProductVM();
+
+            var products = 
+            
+
+            return PartialView("", productvm);
         }
+
     }
 }

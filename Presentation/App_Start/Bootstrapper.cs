@@ -1,7 +1,6 @@
-﻿using Presentation.Mappings;
-
-namespace Presentation.App_Start
+﻿namespace Presentation.App_Start
 {
+    using Presentation.Mappings;
     public class Bootstrapper
     {
         public static void Run()

@@ -22,16 +22,23 @@ namespace Presentation.Controllers
             return PartialView();
         }
 
-
         public ActionResult ProductList()
         {
             ProductVM productvm = new ProductVM();
 
-            var products = 
-            
+            List<ProductVM> products = new List<ProductVM>();
 
-            return PartialView("", productvm);
+            products.Add(
+                new ProductVM
+                {
+                    Name = "Amazon Echo",
+                    Description = "The Echo is a Bluetooth speaker powered by Alexa",
+                    Price = 350,
+                    Image = "product_one.jpg",
+                    Category = "Electronics",
+                    CategoryId = 1
+                });
+            return PartialView("Products",products);
         }
-
     }
 }

@@ -8,7 +8,7 @@ namespace Presentation.Mappings
     {
         public ContractToViewModelMapping()
         {
-            CreateMap<Product, ProductVM>();
+            CreateMap<Product, Product>();
             CreateMap<Category, CategoryVM>();
         }
 

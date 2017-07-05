@@ -1,9 +1,4 @@
-﻿@model IEnumerable<Presentation.ViewModels.ProductVM>
-
-@{
-    ViewBag.Title = "Index";
-}
-<!------------------------Modal Skeleton---------------------------------->
+﻿ <!------------------------Modal Skeleton---------------------------------->
 <div id="myModal" class="modal fade" tabindex="-1" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -12,32 +7,7 @@
         </div>
     </div>
 </div>
-<!---------------------------END---------------------------------------------->
-
-<!---------------------------ProductList-------------------------------------->
-
-<div class="row">
-    <div class="col-xs-12">
-        <div class="panel panel-info">
-            <div class="panel-heading">
-                <div class="panel-title">
-                    <div class="row">
-                        <div class="col-xs-6">
-                            <h5><span class="glyphicon glyphicon-shopping-cart"></span> Products</h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            @Url.Action("ProductList","Home")
-
-            @foreach (var product in Model)
-            {
-            <div class="panel-body">
-
-                @Html.Partial("Products")
-
-            </div>
-            }
-        </div>
-    </div>
+<!------------------------Modal End---------------------------------->
+<div id="productlist">
+    @Html.Partial("ProductList")
 </div>

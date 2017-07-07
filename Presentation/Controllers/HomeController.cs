@@ -14,16 +14,6 @@ namespace Presentation.Controllers
     {
         public ActionResult Index()
         {
-            return View();
-        }
-
-        public ActionResult Add()
-        {
-            return PartialView();
-        }
-
-        public ActionResult ProductList()
-        {
             ProductVM model = new ProductVM();
 
             List<ProductVM> products = new List<ProductVM>();
@@ -34,20 +24,15 @@ namespace Presentation.Controllers
             model.Image = "product_one.jpg";
             model.CategoryId = 1;
             model.Category = "Electronics";
-           
+
             products.Add(model);
-             
-            return PartialView(@"~/Views/Shared/Products.cshtml", model);
-            //products.Add(
-            //    new ProductVM
-            //    {
-            //        Name = "Amazon Echo",
-            //        Description = "The Echo is a Bluetooth speaker powered by Alexa",
-            //        Price = 350,
-            //        Image = "product_one.jpg",
-            //        Category = "Electronics",
-            //        CategoryId = 1
-            //    });
+
+            return PartialView("Products", model);
+        }
+
+        public ActionResult Add()
+        {
+            return PartialView();
         }
     }
 }

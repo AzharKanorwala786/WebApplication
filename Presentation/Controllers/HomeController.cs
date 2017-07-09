@@ -21,17 +21,5 @@ namespace Presentation.Controllers
         {
             return PartialView();
         }
-
-
-        public ActionResult ProductList()
-        {
-            ProductVM productvm = new ProductVM();
-
-            var products = 
-            
-
-            return PartialView("", productvm);
-        }
-
     }
 }

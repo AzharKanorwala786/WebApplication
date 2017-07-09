@@ -14,7 +14,20 @@ namespace Presentation.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            ProductVM model = new ProductVM();
+
+            List<ProductVM> products = new List<ProductVM>();
+
+            model.Name = "Amazon Echo";
+            model.Description = "The Echo is a Bluetooth speaker powered by Alexa";
+            model.Price = 350;
+            model.Image = "product_one.jpg";
+            model.CategoryId = 1;
+            model.Category = "Electronics";
+
+            products.Add(model);
+
+            return PartialView("Products", model);
         }
 
         public ActionResult Add()

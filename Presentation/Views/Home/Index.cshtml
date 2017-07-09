@@ -15,6 +15,6 @@
 <!------------------------Modal End---------------------------------->
 @foreach(var product in Model)
     {
-       
+       @Html.Partial("Products", new Presentation.ViewModels.ProductVM())
     }
               

@@ -1,49 +1,55 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using BusinessLayer.Interface;
-using DTO;
-using RepositoryLayer.Interface;
+﻿using BusinessLayer.Interface;
+using Contracts;
+using DataAccess;
+using System.Collections.Generic;
+using AutoMapper;
 namespace BusinessLayer.Services
 {
-    public class ProductService : GenericService<Product>, IProductService
+    public class ProductService : IProductService
     {
-        private IUnitOfWork UnitofWork;
-        public ProductService(IUnitOfWork UnitofWork) : base(UnitofWork)
+        private readonly IUnitOfWork _UnitofWork;
+
+        private readonly IMapper _mapper;
+
+        public ProductService(IUnitOfWork UnitofWork,IMapper mapper)
         {
-            this.UnitofWork = UnitofWork;
+            this._UnitofWork = UnitofWork;
+            _mapper = mapper;
         }
         public IEnumerable<Product> GetAllProducts()
-        { 
-            return GetAll();
+        {
+            IEnumerable<Product> products = new List<Product>();
+            products = _UnitofWork.GetAll();
+            return products;
         }
 
-        public Product GetProduct()
-        {
-            return GetFirstOrDefault();
-        }
+        //public Product GetProduct()
+        //{
+        //    return GetFirstOrDefault();
+        //}
 
-        public Product GetByProductId(object id)
-        {
-            return GetById(id);
-        }
-        public void InsertProduct(Product product)
-        {
-            Insert(product);
-        }
+        //public Product GetByProductId(object id)
+        //{
+        //    return GetById(id);
+        //}
+        //public void InsertProduct(Product product)
+        //{
+        //    Insert(product);
+        //}
 
-        public void UpdateProduct(Product prodobj)
-        {
-            Update(prodobj);
-        }
+        //public void UpdateProduct(Product prodobj)
+        //{
+        //    Update(prodobj);
+        //}
 
-        public void DeleteProduct(int Id)
-        {
-            Delete(Id);
-        }
+        //public void DeleteProduct(int Id)
+        //{
+        //    Delete(Id);
+        //}
 
-        public void SaveChanges()
-        {
-            Save();
-        }
+        //public void SaveChanges()
+        //{
+        //    Save();
+        //}
     }
 }

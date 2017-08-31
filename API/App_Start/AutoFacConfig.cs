@@ -1,15 +1,14 @@
 ﻿namespace WebApi.App_Start
 {
-  
-    using System.Reflection;
-    using System.Web.Http;
+    using API.AutoMapperConfig;
+    using AutoMapper;
     using Autofac;
     using Autofac.Integration.WebApi;
-    using RepositoryLayer.Interface;
-    using RepositoryLayer.Repositories;
-    using BusinessLayer.Services;
     using BusinessLayer.Interface;
-    using DataLayer.Contexts;
+    using BusinessLayer.Services;
+    using DataAccess;
+    using System.Reflection;
+    using System.Web.Http;
 
     public class AutoFacConfig
     {
@@ -32,14 +31,13 @@
 
             builder.RegisterType<UnitOfWork>().As<IUnitOfWork>().InstancePerRequest();
             // Repository
-            builder.RegisterGeneric(typeof(GenericRepository<>)).As(typeof(IGenericRepository<>));
+            builder.RegisterGeneric(typeof(RepositoryHelper<>)).As(typeof(IRepositoryHelper<>));
 
-            builder.RegisterGeneric(typeof(GenericService<>)).As(typeof(IGenericService<>));
-
+            builder.RegisterType<ProductRepository>().As<IProductRepository>().InstancePerRequest();
             // register services
             builder.RegisterType<ProductService>().As<IProductService>().InstancePerLifetimeScope();
 
-            builder.RegisterType<CategoryService>().As<ICategoryService>().InstancePerLifetimeScope();
+            builder.Register(c => AutoMapperConfig.BuildMaps()).As<IMapper>().SingleInstance();
 
             builder.RegisterType<Context>().InstancePerLifetimeScope();
 

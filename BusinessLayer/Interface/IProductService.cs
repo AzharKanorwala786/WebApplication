@@ -2,16 +2,16 @@
 {
     using System.Collections.Generic;
     using System.Linq;
-    using DTO;
+    using Contracts;
 
-    public interface IProductService : IGenericService<Product> 
+    public interface IProductService 
     {
         IEnumerable<Product> GetAllProducts();
-        Product GetProduct();
-        Product GetByProductId(object id);
-        void InsertProduct(Product product);
-        void UpdateProduct(Product prodobj);
-        void DeleteProduct(int Id);
-        void SaveChanges();
+        //Product GetProduct();
+        //Product GetByProductId(object id);
+        //void InsertProduct(Product product);
+        //void UpdateProduct(Product prodobj);
+        //void DeleteProduct(int Id);
+        //void SaveChanges();
     }
 }

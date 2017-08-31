@@ -1,22 +1,21 @@
-﻿namespace RepositoryLayer.Repositories
+﻿namespace DataAccess
 {
+    using DataAccess;
     using System;
     using System.Collections.Generic;
+    using System.Data.Entity;
     using System.Linq;
     using System.Linq.Expressions;
-    using System.Data.Entity;
-    using RepositoryLayer.Interface;
-    using DataLayer.Contexts;
 
-    public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class
+    public class RepositoryHelper<TEntity> : IRepositoryHelper<TEntity> where TEntity : class
     {
         private Context dbcontext;
         private DbSet<TEntity> dbset;
 
-        public GenericRepository(Context dbcontext)
+        public RepositoryHelper(Context dbcontext)
         {
             this.dbcontext = dbcontext;
-            this.dbset = dbcontext.Set<TEntity>();
+            dbset = dbcontext.Set<TEntity>();
         }
 
         /// <summary>
@@ -24,24 +23,30 @@
         /// </summary>
         /// <returns></returns>
 
-        public List<TEntity> Get()
+        public IEnumerable<TEntity> Get()
         {
             IQueryable<TEntity> query = dbset;
-
             return query.ToList();
+        }
 
+        /// <summary>
+        /// Get Data From Different Entites
+        /// </summary>
+        /// <param name="toInclude"></param>
+        /// <returns></returns>
+        public IQueryable<TEntity> GetIncluding(string toInclude)
+        {
+            IQueryable<TEntity> query = dbset.Include(toInclude);
+            return query;
         }
 
          /// <summary>
         /// Get first or default entity by filter
         /// </summary>
-
         /// <returns></returns>
-
         public TEntity GetFirstOrDefault(Expression<Func<TEntity, bool>> filter = null)
         {
             IQueryable<TEntity> query = dbset;
-
             return query.FirstOrDefault(filter);
         }
 
@@ -60,7 +65,6 @@
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-
         public virtual void Insert(TEntity entity)
         {
             dbset.Add(entity);
@@ -70,7 +74,6 @@
         /// Update entity in db
         /// </summary>
         /// <param name="entity"></param
-
         public virtual void Update(TEntity entity)
         {
             dbset.Attach(entity);

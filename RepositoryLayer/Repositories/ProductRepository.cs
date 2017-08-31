@@ -1,31 +1,43 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DataLayer.Contexts;
-using DTO;
-using RepositoryLayer.Interface;
-using System.Data.Entity;
-
-namespace RepositoryLayer.Repositories
+﻿namespace DataAccess
 {
-    public class ProductRepository : GenericRepository<Product>
+    using AutoMapper;
+    using Entities;
+    using System.Collections.Generic;
+
+    public class ProductRepository : IProductRepository
     {
-        private Context dbcontext;
-        private DbSet<Product> dbset;
+        private readonly IRepositoryHelper<Product> _repositoryHelper;
 
-        public ProductRepository(Context dbcontext) : base(dbcontext)
+        private readonly IMapper _mapper;
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="repositoryHelper"></param>
+        public ProductRepository(IRepositoryHelper<Product> repositoryHelper,IMapper mapper)
         {
-            this.dbcontext = dbcontext;
-            this.dbset = dbcontext.Set<Product>();
+            _repositoryHelper = repositoryHelper;
+            _mapper = mapper;
         }
 
-        public IEnumerable<Product> GetAll()
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<Contracts.Product> GetAll()
         {
-            var products = dbset.Include("Category").AsEnumerable();
-            return products;
+            var products = _repositoryHelper.Get();
+            var contract = new List<Contracts.Product>();
+            _mapper.Map(products,contract);       
+            return contract;
         }
 
+        /// <summary>
+        ///  
+        /// </summary>
+        /// <param name="product"></param>
+        public void SaveProduct(Product product)
+        {
+            _repositoryHelper.Insert(product);
+        }
     }
 }

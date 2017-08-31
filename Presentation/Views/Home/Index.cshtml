@@ -3,18 +3,10 @@
 @{
     ViewBag.Title = "Index";
 }
-<!------------------------Modal Skeleton---------------------------------->
-<div id="myModal" class="modal fade" tabindex="-1" role="dialog">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-body">
-            </div>
-        </div>
-    </div>
-</div>
-<!------------------------Modal End---------------------------------->
+
+
 @foreach(var product in Model)
     {
-       @Html.Partial("Products", new Presentation.ViewModels.ProductVM())
+       @Html.Partial("Products",product)
     }
               

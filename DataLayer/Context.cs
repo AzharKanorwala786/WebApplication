@@ -1,8 +1,8 @@
-﻿namespace DataLayer.Contexts
+﻿namespace DataAccess
 {
-    using System.Data.Entity;
     using Configuration;
-    using DTO;
+    using Entities;
+    using System.Data.Entity;
 
 
     public class Context : DbContext
@@ -12,6 +12,8 @@
         {
             var ensureDLLIsCopied = System.Data.Entity.SqlServer.SqlProviderServices.Instance;
         }
+
+        //Table Names
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> Categories { get; set; }
 
@@ -19,8 +21,8 @@
         {
             modelBuilder.Configurations.Add(new ProductConfiguration());
             modelBuilder.Configurations.Add(new CategoryConfiguration());
-            Configuration.LazyLoadingEnabled = false;
-            Configuration.ProxyCreationEnabled = false;
+            Configuration.LazyLoadingEnabled = true;
+            Configuration.ProxyCreationEnabled = true;
         }
     }
 }

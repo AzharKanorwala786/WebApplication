@@ -1,38 +1,47 @@
-﻿namespace RepositoryLayer.Repositories
+﻿namespace DataAccess
 {
+    using DataAccess;
+    using Entities;
     using System;
     using System.Collections.Generic;
-    using System.Linq;
-    using DataLayer.Contexts;
-    using RepositoryLayer.Interface;
 
     public class UnitOfWork : IUnitOfWork, IDisposable
     {
-        private Context dbcontext;
+        private readonly Context dbcontext;
+
+        private readonly IProductRepository _productRepository;
+
         private bool disposed = false;
-        public UnitOfWork(Context dbcontext)
+
+        /// <summary>
+        /// Intialize UnitOfWork Constructor
+        /// </summary>
+        /// <param name="dbcontext"></param>
+        /// <param name="productRepository"></param>
+        public UnitOfWork(Context dbcontext,IProductRepository productRepository)
         {
             this.dbcontext = dbcontext;
+            this._productRepository = productRepository;
         }
-
-        public Dictionary<Type, object> repositories = new Dictionary<Type, object>();
-        public IGenericRepository<TEntity> Repository<TEntity>() where TEntity : class
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<Contracts.Product> GetAll()
         {
-            if (repositories.Keys.Contains(typeof(TEntity)) == true)
-            {
-                return repositories[typeof(TEntity)] as IGenericRepository<TEntity>;
-            }
-            IGenericRepository<TEntity> repo = new GenericRepository<TEntity>(dbcontext);
-            repositories.Add(typeof(TEntity), repo);
-            return repo;
+            return _productRepository.GetAll();
         }
         public void Save()
         {
             dbcontext.SaveChanges();
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="disposing"></param>
         protected virtual void Dispose(bool disposing)
         {
-            if (!this.disposed)
+            if (!disposed)
             {
                 if (disposing)
                 {
@@ -41,11 +50,14 @@
             }
             this.disposed = true;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public void Dispose()
         {
             Dispose(true);
             GC.SuppressFinalize(this);
         }
-
     }
 }

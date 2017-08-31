@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using DTO;
+using Contracts;
 using Presentation.ViewModels;
 
 namespace Presentation.Mappings

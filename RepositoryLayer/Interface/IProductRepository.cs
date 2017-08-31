@@ -3,7 +3,7 @@
     using Entities;
     using System.Collections.Generic;
 
-    public interface IUnitOfWork
+    public interface IProductRepository
     {
         /// <summary>
         /// 
@@ -14,6 +14,7 @@
         /// <summary>
         /// 
         /// </summary>
-        void Save();
+        /// <param name="product"></param>
+        void SaveProduct(Product product);
     }
 }

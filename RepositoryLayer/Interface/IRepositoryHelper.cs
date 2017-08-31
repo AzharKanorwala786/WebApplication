@@ -1,17 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-
-namespace RepositoryLayer.Interface
+﻿namespace DataAccess
 {
-   public interface IGenericRepository<TEntity> where TEntity : class
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Linq.Expressions;
+
+    public interface IRepositoryHelper<TEntity> where TEntity : class
     {
         /// <summary>
         /// Get all entities from db
         /// </summary>
         /// <returns></returns>
-        List<TEntity> Get();
+        IEnumerable<TEntity> Get();
+
+        /// <summary>
+        /// Include Data from other tables
+        /// </summary>
+        /// <param name="toInclude"></param>
+        /// <returns></returns>
+        IQueryable<TEntity> GetIncluding(string toInclude);
 
         /// <summary>
         /// Get first or default entity by filter

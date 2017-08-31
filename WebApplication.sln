@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLayer", "DataLayer\DataLayer.csproj", "{6B4AC38B-83DC-4D56-A56B-7ADB8B8CFB83}"
 EndProject
@@ -9,9 +9,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Contracts", "Contracts", "{3F30F912-60D3-470B-97E1-7C252A89EBFD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DTO", "DTO\DTO.csproj", "{016F4113-3EAF-4B5E-9B9B-4C61CFD0B922}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contracts", "DTO\Contracts.csproj", "{016F4113-3EAF-4B5E-9B9B-4C61CFD0B922}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RepositoryLayer", "RepositoryLayer\RepositoryLayer.csproj", "{2F277052-7DE2-48A3-8B1B-8B6725FAD98C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "RepositoryLayer\DataAccess.csproj", "{2F277052-7DE2-48A3-8B1B-8B6725FAD98C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLayer", "BusinessLayer\BusinessLayer.csproj", "{41E21532-16E3-45CE-985C-EF482C90EEF1}"
 EndProject
@@ -24,6 +24,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Presentation", "Presentation\Presentation.csproj", "{498BB1CE-AC47-4477-8009-690A7A884CFB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{5E115BA6-DCF9-480C-8170-EF99F39ACB24}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entities.csproj", "{3D449C61-56EE-41E7-8BD1-6580DE85529F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -55,6 +57,10 @@ Global
 		{498BB1CE-AC47-4477-8009-690A7A884CFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{498BB1CE-AC47-4477-8009-690A7A884CFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{498BB1CE-AC47-4477-8009-690A7A884CFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D449C61-56EE-41E7-8BD1-6580DE85529F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D449C61-56EE-41E7-8BD1-6580DE85529F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D449C61-56EE-41E7-8BD1-6580DE85529F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D449C61-56EE-41E7-8BD1-6580DE85529F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -66,5 +72,9 @@ Global
 		{41E21532-16E3-45CE-985C-EF482C90EEF1} = {EF52D122-A9E4-4A92-B764-1D3D2AF69379}
 		{BB015576-ECAB-4DAB-9BC7-446038E226E4} = {C433A2D4-6C74-4DE0-B024-3079DCC98244}
 		{498BB1CE-AC47-4477-8009-690A7A884CFB} = {5E115BA6-DCF9-480C-8170-EF99F39ACB24}
+		{3D449C61-56EE-41E7-8BD1-6580DE85529F} = {3F30F912-60D3-470B-97E1-7C252A89EBFD}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B933A116-11BA-4100-85AA-E8DA71D4E177}
 	EndGlobalSection
 EndGlobal

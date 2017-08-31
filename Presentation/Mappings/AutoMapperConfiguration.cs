@@ -1,8 +1,6 @@
-﻿using System;
-using AutoMapper;
-
-namespace Presentation.Mappings
+﻿namespace Presentation.Mappings
 {
+    using AutoMapper;
     public class AutoMapperConfiguration
     {
         public static void Configure()

@@ -28,6 +28,6 @@
         /// <summary>
         /// Category 
         /// </summary>
-        public virtual Category Category { get; set; }   
+        public string Category { get; set; }
     }
 }

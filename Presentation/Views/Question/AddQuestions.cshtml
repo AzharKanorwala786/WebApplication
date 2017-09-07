@@ -1,0 +1,21 @@
+﻿@model Presentation.Models.QuestionsList
+
+<input type="button" id="btn_add" class="btn btn-default" value="Add Multiple Question" onclick="WebApp.Questions.DisplayQuestion('@Url.Action("Question","Question")');" />
+
+<div id="div_AddQuestion" style="">
+
+ @Html.BeginForm()
+  {
+    @for(int i = 0; i < Model.Questions.Count(); i++)
+    {
+        @Html.Partial("Question")
+    }
+</div>
+    <div class="form-group">
+        <input type="button" id="" value="Submit" class=" btn btn-default" />
+    </div>
+ @*}*@
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@Scripts.Render("~/bundles/Questionjs")
+

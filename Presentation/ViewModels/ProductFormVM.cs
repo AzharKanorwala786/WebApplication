@@ -12,6 +12,6 @@
         public string Image { get; set; }
         public HttpPostedFileBase File { get; set; }
         public int CategoryId { get; set; } 
-        public List<CategoryVM> Categories { get; set; }
+      
     }
 }

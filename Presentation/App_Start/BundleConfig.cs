@@ -1,5 +1,4 @@
-﻿using System.Web;
-using System.Web.Optimization;
+﻿using System.Web.Optimization;
 
 namespace Presentation
 {
@@ -15,7 +14,10 @@ namespace Presentation
                         "~/Scripts/jquery.validate*"));
 
             bundles.Add(new ScriptBundle("~/bundles/custom").Include(
-                "~/Scripts/custom/custom.js"));
+               "~/Scripts/custom/custom.js"));
+
+            //bundles.Add(new ScriptBundle("~/bundles/Questionjs").Include(
+            //     "~/Scripts/custom/Question.js"));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.

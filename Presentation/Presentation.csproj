@@ -48,6 +48,9 @@
     <Reference Include="AutoMapper, Version=6.1.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <HintPath>..\packages\AutoMapper.6.1.0\lib\net45\AutoMapper.dll</HintPath>
     </Reference>
+    <Reference Include="BeginCollectionItem, Version=1.2.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\BeginCollectionItem.1.2.1.0\lib\net35\BeginCollectionItem.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -127,6 +130,9 @@
     <Compile Include="Mappings\AutoMapperConfiguration.cs" />
     <Compile Include="Mappings\ContractToViewModelMapping.cs" />
     <Compile Include="Mappings\ViewModelToContractMapping.cs" />
+    <Compile Include="Models\Question.cs" />
+    <Compile Include="Models\QuestionPickList.cs" />
+    <Compile Include="Models\QuestionsList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\CategoryVM.cs" />
     <Compile Include="ViewModels\ProductFormVM.cs" />
@@ -188,10 +194,12 @@
     <Content Include="Views\Home\Add.cshtml" />
     <Content Include="Views\Shared\Products.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Question\AddQuestions.cshtml" />
+    <Content Include="Views\Question\Question.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Collection.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config">

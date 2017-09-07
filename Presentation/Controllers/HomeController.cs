@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using AutoMapper;
 using Contracts;
 using Presentation.ViewModels;
+using System.Configuration;
 
 namespace Presentation.Controllers
 {
@@ -27,9 +28,20 @@ namespace Presentation.Controllers
         {
             return PartialView();
         }
-        public ViewResult Products()
+        [HttpGet]
+        public ActionResult Products()
         {
             return View("Products");
+        }
+        public JsonResult GetAPICall()
+        {
+            string url = ConfigurationManager.AppSettings.Get("API");
+
+            if (string.IsNullOrEmpty(url) == false)
+            {
+                return Json(url, JsonRequestBehavior.AllowGet);
+            }
+            return Json(url, JsonRequestBehavior.AllowGet);
         }
     }
 }

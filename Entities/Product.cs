@@ -25,10 +25,10 @@
         /// <summary>
         /// CategoryId  
         /// </summary>
-        public int CategoryId { get; set; }  
+        public int CategoryId { get; set; }
         /// <summary>
         /// Category
         /// </summary>
-        public string Category { get; set; }
+        public virtual Category Category { get; set; }
     }
 }
